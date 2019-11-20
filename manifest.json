@@ -1,0 +1,14 @@
+{
+  "name": "Feedsearch",
+  "version": "1.0",
+  "description": "Call the Feedsearch API",
+  "permissions": ["storage", "declarativeContent", "activeTab", "https://feedsearch.dev/", "tabs"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
