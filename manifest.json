@@ -1,14 +1,26 @@
 {
+  "manifest_version": 2,
   "name": "Feedsearch",
   "version": "1.0",
   "description": "Call the Feedsearch API",
-  "permissions": ["storage", "declarativeContent", "activeTab", "https://feedsearch.dev/", "tabs"],
+
+  "permissions": ["storage", "activeTab", "https://feedsearch.dev/", "tabs"],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
-  "page_action": {
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["background.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "rss.png",
+    "default_title": "Feedsearch",
     "default_popup": "popup.html"
   },
-  "manifest_version": 2
+  "icons": {
+    "32": "rss.png"
+  }
 }
